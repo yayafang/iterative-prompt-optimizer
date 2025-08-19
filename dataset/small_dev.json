@@ -1,0 +1,122 @@
+[
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 554,
+    "prompt": "Write a python function which takes a list of integers and only returns the odd ones.",
+    "code": "def Split(list): \n    od_li = [] \n    for i in list: \n        if (i % 2 != 0): \n            od_li.append(i)  \n    return od_li",
+    "test_imports": [],
+    "test": [
+      "assert Split([1,2,3,4,5,6]) == [1,3,5]",
+      "assert Split([10,11,12,13]) == [11,13]",
+      "assert Split([7,8,9,1]) == [7,9,1]"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 555,
+    "prompt": "Write a python function to find the difference between the sum of cubes of the first n natural numbers and the sum of the first n natural numbers.",
+    "code": "def difference(n) :  \n    S = (n*(n + 1))//2;  \n    res = S*(S-1);  \n    return res;  ",
+    "test_imports": [],
+    "test": [
+      "assert difference(3) == 30",
+      "assert difference(5) == 210",
+      "assert difference(2) == 6"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 556,
+    "prompt": "Write a python function to count the number of pairs whose xor value is odd.",
+    "code": "def find_Odd_Pair(A,N) : \n    oddPair = 0\n    for i in range(0,N) :  \n        for j in range(i+1,N) :  \n            if ((A[i] ^ A[j]) % 2 != 0):  \n                oddPair+=1  \n    return oddPair  ",
+    "test_imports": [],
+    "test": [
+      "assert find_Odd_Pair([5,4,7,2,1],5) == 6",
+      "assert find_Odd_Pair([7,2,8,1,0,5,11],7) == 12",
+      "assert find_Odd_Pair([1,2,3],3) == 2"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 557,
+    "prompt": "Write a function to toggle the case of all characters in a string.",
+    "code": "def toggle_string(string):\n string1 = string.swapcase()\n return string1",
+    "test_imports": [],
+    "test": [
+      "assert toggle_string(\"Python\")==(\"pYTHON\")",
+      "assert toggle_string(\"Pangram\")==(\"pANGRAM\")",
+      "assert toggle_string(\"LIttLE\")==(\"liTTle\")"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 558,
+    "prompt": "Write a python function to find the sum of the per-digit difference between two integers.",
+    "code": "def digit_distance_nums(n1, n2):\n         return sum(map(int,str(abs(n1-n2))))",
+    "test_imports": [],
+    "test": [
+      "assert digit_distance_nums(1,2) == 1",
+      "assert digit_distance_nums(23,56) == 6",
+      "assert digit_distance_nums(123,256) == 7"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 559,
+    "prompt": "Write a function to find the sum of the largest contiguous sublist in the given list.",
+    "code": "def max_sub_array_sum(a, size):\n  max_so_far = 0\n  max_ending_here = 0\n  for i in range(0, size):\n    max_ending_here = max_ending_here + a[i]\n    if max_ending_here < 0:\n      max_ending_here = 0\n    elif (max_so_far < max_ending_here):\n      max_so_far = max_ending_here\n  return max_so_far",
+    "test_imports": [],
+    "test": [
+      "assert max_sub_array_sum([-2, -3, 4, -1, -2, 1, 5, -3], 8) == 7",
+      "assert max_sub_array_sum([-3, -4, 5, -2, -3, 2, 6, -4], 8) == 8",
+      "assert max_sub_array_sum([-4, -5, 6, -3, -4, 3, 7, -5], 8) == 10"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 560,
+    "prompt": "Write a function to find the union of the elements of two given tuples and output them in sorted order.",
+    "code": "def union_elements(test_tup1, test_tup2):\n  res = tuple(set(test_tup1 + test_tup2))\n  return (res) ",
+    "test_imports": [],
+    "test": [
+      "assert union_elements((3, 4, 5, 6),(5, 7, 4, 10) ) == (3, 4, 5, 6, 7, 10)",
+      "assert union_elements((1, 2, 3, 4),(3, 4, 5, 6) ) == (1, 2, 3, 4, 5, 6)",
+      "assert union_elements((11, 12, 13, 14),(13, 15, 16, 17) ) == (11, 12, 13, 14, 15, 16, 17)"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 562,
+    "prompt": "Write a python function to find the length of the longest sublists.",
+    "code": "def Find_Max_Length(lst):  \n    maxLength = max(len(x) for x in lst )\n    return maxLength ",
+    "test_imports": [],
+    "test": [
+      "assert Find_Max_Length([[1],[1,4],[5,6,7,8]]) == 4",
+      "assert Find_Max_Length([[0,1],[2,2,],[3,2,1]]) == 3",
+      "assert Find_Max_Length([[7],[22,23],[13,14,15],[10,20,30,40,50]]) == 5"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 563,
+    "prompt": "Write a function to extract values between quotation marks from a string.",
+    "code": "import re\ndef extract_values(text):\n return (re.findall(r'\"(.*?)\"', text))",
+    "test_imports": [],
+    "test": [
+      "assert extract_values('\"Python\", \"PHP\", \"Java\"')==['Python', 'PHP', 'Java']",
+      "assert extract_values('\"python\",\"program\",\"language\"')==['python','program','language']",
+      "assert extract_values('\"red\",\"blue\",\"green\",\"yellow\"')==['red','blue','green','yellow']"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 564,
+    "prompt": "Write a python function which takes a list of integers and counts the number of possible unordered pairs where both elements are unequal.",
+    "code": "def count_Pairs(arr,n): \n    cnt = 0; \n    for i in range(n): \n        for j in range(i + 1,n): \n            if (arr[i] != arr[j]): \n                cnt += 1; \n    return cnt; ",
+    "test_imports": [],
+    "test": [
+      "assert count_Pairs([1,2,1],3) == 2",
+      "assert count_Pairs([1,1,1,1],4) == 0",
+      "assert count_Pairs([1,2,3,4,5],5) == 10"
+    ]
+  }
+]

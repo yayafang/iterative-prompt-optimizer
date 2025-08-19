@@ -1,0 +1,218 @@
+[
+    {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 602,
+    "prompt": "Write a python function to find the first repeated character in a given string.",
+    "code": "def first_repeated_char(str1):\n  for index,c in enumerate(str1):\n    if str1[:index+1].count(c) > 1:\n      return c",
+    "test_imports": [],
+    "test": [
+      "assert first_repeated_char(\"abcabc\") == \"a\"",
+      "assert first_repeated_char(\"abc\") == None",
+      "assert first_repeated_char(\"123123\") == \"1\""
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 603,
+    "prompt": "Write a function to get all lucid numbers smaller than or equal to a given integer.",
+    "code": "def get_ludic(n):\n\tludics = []\n\tfor i in range(1, n + 1):\n\t\tludics.append(i)\n\tindex = 1\n\twhile(index != len(ludics)):\n\t\tfirst_ludic = ludics[index]\n\t\tremove_index = index + first_ludic\n\t\twhile(remove_index < len(ludics)):\n\t\t\tludics.remove(ludics[remove_index])\n\t\t\tremove_index = remove_index + first_ludic - 1\n\t\tindex += 1\n\treturn ludics",
+    "test_imports": [],
+    "test": [
+      "assert get_ludic(10) == [1, 2, 3, 5, 7]",
+      "assert get_ludic(25) == [1, 2, 3, 5, 7, 11, 13, 17, 23, 25]",
+      "assert get_ludic(45) == [1, 2, 3, 5, 7, 11, 13, 17, 23, 25, 29, 37, 41, 43]"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 604,
+    "prompt": "Write a function to reverse words seperated by spaces in a given string.",
+    "code": "def reverse_words(s):\n        return ' '.join(reversed(s.split()))",
+    "test_imports": [],
+    "test": [
+      "assert reverse_words(\"python program\")==(\"program python\")",
+      "assert reverse_words(\"java language\")==(\"language java\")",
+      "assert reverse_words(\"indian man\")==(\"man indian\")"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 605,
+    "prompt": "Write a function to check if the given integer is a prime number.",
+    "code": "def prime_num(num):\n  if num >=1:\n   for i in range(2, num//2):\n     if (num % i) == 0:\n                return False\n     else:\n                return True\n  else:\n          return False",
+    "test_imports": [],
+    "test": [
+      "assert prime_num(13)==True",
+      "assert prime_num(7)==True",
+      "assert prime_num(-1010)==False"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 606,
+    "prompt": "Write a function to convert degrees to radians.",
+    "code": "import math\ndef radian_degree(degree):\n radian = degree*(math.pi/180)\n return radian",
+    "test_imports": [],
+    "test": [
+      "assert radian_degree(90)==1.5707963267948966",
+      "assert radian_degree(60)==1.0471975511965976",
+      "assert radian_degree(120)==2.0943951023931953"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 607,
+    "prompt": "Write a function to search a string for a regex pattern. The function should return the matching subtring, a start index and an end index.",
+    "code": "import re\n\ndef find_literals(text, pattern):\n  match = re.search(pattern, text)\n  s = match.start()\n  e = match.end()\n  return (match.re.pattern, s, e)",
+    "test_imports": [],
+    "test": [
+      "assert find_literals('The quick brown fox jumps over the lazy dog.', 'fox') == ('fox', 16, 19)",
+      "assert find_literals('Its been a very crazy procedure right', 'crazy') == ('crazy', 16, 21)",
+      "assert find_literals('Hardest choices required strongest will', 'will') == ('will', 35, 39)"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 608,
+    "prompt": "Write a python function to find nth bell number.",
+    "code": "def bell_Number(n): \n    bell = [[0 for i in range(n+1)] for j in range(n+1)] \n    bell[0][0] = 1\n    for i in range(1, n+1):\n        bell[i][0] = bell[i-1][i-1]\n        for j in range(1, i+1): \n            bell[i][j] = bell[i-1][j-1] + bell[i][j-1] \n    return bell[n][0] ",
+    "test_imports": [],
+    "test": [
+      "assert bell_Number(2) == 2",
+      "assert bell_Number(3) == 5",
+      "assert bell_Number(4) == 15"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 610,
+    "prompt": "Write a python function which takes a list and returns a list with the same elements, but the k'th element removed.",
+    "code": "def remove_kth_element(list1, L):\n    return  list1[:L-1] + list1[L:]",
+    "test_imports": [],
+    "test": [
+      "assert remove_kth_element([1,1,2,3,4,4,5,1],3)==[1, 1, 3, 4, 4, 5, 1]",
+      "assert remove_kth_element([0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4],4)==[0, 0, 1, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4]",
+      "assert remove_kth_element([10, 10, 15, 19, 18, 18, 17, 26, 26, 17, 18, 10],5)==[10,10,15,19, 18, 17, 26, 26, 17, 18, 10]"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 611,
+    "prompt": "Write a function which given a matrix represented as a list of lists returns the max of the n'th column.",
+    "code": "def max_of_nth(test_list, N):\n  res = max([sub[N] for sub in test_list])\n  return (res) ",
+    "test_imports": [],
+    "test": [
+      "assert max_of_nth([[5, 6, 7], [1, 3, 5], [8, 9, 19]], 2) == 19",
+      "assert max_of_nth([[6, 7, 8], [2, 4, 6], [9, 10, 20]], 1) == 10",
+      "assert max_of_nth([[7, 8, 9], [3, 5, 7], [10, 11, 21]], 1) == 11"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 612,
+    "prompt": "Write a python function which takes a list of lists, where each sublist has two elements, and returns a list of two lists where the first list has the first element of each sublist and the second one has the second.",
+    "code": "def merge(lst):  \n    return [list(ele) for ele in list(zip(*lst))] ",
+    "test_imports": [],
+    "test": [
+      "assert merge([['x', 'y'], ['a', 'b'], ['m', 'n']]) == [['x', 'a', 'm'], ['y', 'b', 'n']]",
+      "assert merge([[1, 2], [3, 4], [5, 6], [7, 8]]) == [[1, 3, 5, 7], [2, 4, 6, 8]]",
+      "assert merge([['x', 'y','z' ], ['a', 'b','c'], ['m', 'n','o']]) == [['x', 'a', 'm'], ['y', 'b', 'n'],['z', 'c','o']]"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 614,
+    "prompt": "Write a function to find the cumulative sum of all the values that are present in the given tuple list.",
+    "code": "def cummulative_sum(test_list):\n  res = sum(map(sum, test_list))\n  return (res)",
+    "test_imports": [],
+    "test": [
+      "assert cummulative_sum([(1, 3), (5, 6, 7), (2, 6)]) == 30",
+      "assert cummulative_sum([(2, 4), (6, 7, 8), (3, 7)]) == 37",
+      "assert cummulative_sum([(3, 5), (7, 8, 9), (4, 8)]) == 44"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 615,
+    "prompt": "Write a function which takes a tuple of tuples and returns the average value for each tuple as a list.",
+    "code": "def average_tuple(nums):\n    result = [sum(x) / len(x) for x in zip(*nums)]\n    return result",
+    "test_imports": [],
+    "test": [
+      "assert average_tuple(((10, 10, 10, 12), (30, 45, 56, 45), (81, 80, 39, 32), (1, 2, 3, 4)))==[30.5, 34.25, 27.0, 23.25]",
+      "assert average_tuple(((1, 1, -5), (30, -15, 56), (81, -60, -39), (-10, 2, 3)))== [25.5, -18.0, 3.75]",
+      "assert average_tuple( ((100, 100, 100, 120), (300, 450, 560, 450), (810, 800, 390, 320), (10, 20, 30, 40)))==[305.0, 342.5, 270.0, 232.5]"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 616,
+    "prompt": "Write a function which takes two tuples of the same length and performs the element wise modulo.",
+    "code": "def tuple_modulo(test_tup1, test_tup2):\n  res = tuple(ele1 % ele2 for ele1, ele2 in zip(test_tup1, test_tup2)) \n  return (res) ",
+    "test_imports": [],
+    "test": [
+      "assert tuple_modulo((10, 4, 5, 6), (5, 6, 7, 5)) == (0, 4, 5, 1)",
+      "assert tuple_modulo((11, 5, 6, 7), (6, 7, 8, 6)) == (5, 5, 6, 1)",
+      "assert tuple_modulo((12, 6, 7, 8), (7, 8, 9, 7)) == (5, 6, 7, 1)"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 617,
+    "prompt": "Write a function to check for the number of jumps required of given length to reach a point of form (d, 0) from origin in a 2d plane.",
+    "code": "def min_Jumps(steps, d): \n    (a, b) = steps\n    temp = a \n    a = min(a, b) \n    b = max(temp, b) \n    if (d >= b): \n        return (d + b - 1) / b \n    if (d == 0): \n        return 0\n    if (d == a): \n        return 1\n    else:\n        return 2",
+    "test_imports": [],
+    "test": [
+      "assert min_Jumps((3,4),11)==3.5",
+      "assert min_Jumps((3,4),0)==0",
+      "assert min_Jumps((11,14),11)==1"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 618,
+    "prompt": "Write a function to divide two lists element wise.",
+    "code": "def div_list(nums1,nums2):\n  result = map(lambda x, y: x / y, nums1, nums2)\n  return list(result)",
+    "test_imports": [],
+    "test": [
+      "assert div_list([4,5,6],[1, 2, 3])==[4.0,2.5,2.0]",
+      "assert div_list([3,2],[1,4])==[3.0, 0.5]",
+      "assert div_list([90,120],[50,70])==[1.8, 1.7142857142857142]"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 619,
+    "prompt": "Write a function to move all the numbers to the end of the given string.",
+    "code": "def move_num(test_str):\n  res = ''\n  dig = ''\n  for ele in test_str:\n    if ele.isdigit():\n      dig += ele\n    else:\n      res += ele\n  res += dig\n  return (res) ",
+    "test_imports": [],
+    "test": [
+      "assert move_num('I1love143you55three3000thousand') == 'Iloveyouthreethousand1143553000'",
+      "assert move_num('Avengers124Assemble') == 'AvengersAssemble124'",
+      "assert move_num('Its11our12path13to14see15things16do17things') == 'Itsourpathtoseethingsdothings11121314151617'"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 620,
+    "prompt": "Write a function to find the size of the largest subset of a list of numbers so that every pair is divisible.",
+    "code": "def largest_subset(a):\n\tn = len(a)\n\tdp = [0 for i in range(n)]\n\tdp[n - 1] = 1; \n\tfor i in range(n - 2, -1, -1):\n\t\tmxm = 0;\n\t\tfor j in range(i + 1, n):\n\t\t\tif a[j] % a[i] == 0 or a[i] % a[j] == 0:\n\t\t\t\tmxm = max(mxm, dp[j])\n\t\tdp[i] = 1 + mxm\n\treturn max(dp)",
+    "test_imports": [],
+    "test": [
+      "assert largest_subset([ 1, 3, 6, 13, 17, 18 ]) == 4",
+      "assert largest_subset([10, 5, 3, 15, 20]) == 3",
+      "assert largest_subset([18, 1, 3, 6, 13, 17]) == 4"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 622,
+    "prompt": "Write a function to find the median of two sorted lists of same size.",
+    "code": "def get_median(arr1, arr2, n):\n  i = 0\n  j = 0\n  m1 = -1\n  m2 = -1\n  count = 0\n  while count < n + 1:\n    count += 1\n    if i == n:\n      m1 = m2\n      m2 = arr2[0]\n      break\n    elif j == n:\n      m1 = m2\n      m2 = arr1[0]\n      break\n    if arr1[i] <= arr2[j]:\n      m1 = m2\n      m2 = arr1[i]\n      i += 1\n    else:\n      m1 = m2\n      m2 = arr2[j]\n      j += 1\n  return (m1 + m2)/2",
+    "test_imports": [],
+    "test": [
+      "assert get_median([1, 12, 15, 26, 38], [2, 13, 17, 30, 45], 5) == 16.0",
+      "assert get_median([2, 4, 8, 9], [7, 13, 19, 28], 4) == 8.5",
+      "assert get_median([3, 6, 14, 23, 36, 42], [2, 18, 27, 39, 49, 55], 6) == 25.0"
+    ]
+    }
+]
